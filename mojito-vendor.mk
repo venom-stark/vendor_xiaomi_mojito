@@ -61,6 +61,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/mojito/proprietary/vendor/etc/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
     vendor/xiaomi/mojito/proprietary/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     vendor/xiaomi/mojito/proprietary/vendor/etc/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    vendor/xiaomi/mojito/proprietary/vendor/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     vendor/xiaomi/mojito/proprietary/vendor/etc/camera/102_SummerDay.png:$(TARGET_COPY_OUT_VENDOR)/etc/camera/102_SummerDay.png \
     vendor/xiaomi/mojito/proprietary/vendor/etc/camera/103_Fantasy.png:$(TARGET_COPY_OUT_VENDOR)/etc/camera/103_Fantasy.png \
     vendor/xiaomi/mojito/proprietary/vendor/etc/camera/104_Meet.png:$(TARGET_COPY_OUT_VENDOR)/etc/camera/104_Meet.png \
@@ -149,6 +150,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.0-service-qti.rc \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.3-service.widevine.rc \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc \
+    vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gnss@2.1-service-qti.rc \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.1-service-qti.rc \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc \
     vendor/xiaomi/mojito/proprietary/vendor/etc/init/cnd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cnd.rc \
@@ -281,6 +283,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/mojito/proprietary/vendor/etc/thermald-devices.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermald-devices.conf \
     vendor/xiaomi/mojito/proprietary/vendor/etc/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     vendor/xiaomi/mojito/proprietary/vendor/etc/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    vendor/xiaomi/mojito/proprietary/vendor/etc/xtra_root_cert.pem:$(TARGET_COPY_OUT_VENDOR)/etc/xtra_root_cert.pem \
     vendor/xiaomi/mojito/proprietary/vendor/firmware/CAMERA_ICP.elf:$(TARGET_COPY_OUT_VENDOR)/firmware/CAMERA_ICP.elf \
     vendor/xiaomi/mojito/proprietary/vendor/firmware/a612_rgmu.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/a612_rgmu.bin \
     vendor/xiaomi/mojito/proprietary/vendor/firmware/a612_zap.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/a612_zap.b00 \
@@ -617,6 +620,7 @@ PRODUCT_PACKAGES += \
     deviceInfoServiceModule \
     android.hardware.bluetooth@1.0-impl-qti \
     android.hardware.gatekeeper@1.0-impl-qti \
+    android.hardware.gnss@2.1-impl-qti \
     camera.qcom \
     com.dsi.ant@1.0-impl \
     com.qti.chi.override \
@@ -682,6 +686,7 @@ PRODUCT_PACKAGES += \
     libarcsoft_portrait_lighting_c \
     libarcsoft_preview_deflicker \
     libarcsoft_supernight \
+    libbatching \
     libbeauty_face_interface \
     libbtnv \
     libc++_shared \
@@ -718,6 +723,11 @@ PRODUCT_PACKAGES += \
     libdsi_netctrl \
     libft2vendor \
     libgameoptfeature \
+    libgdtap \
+    libgeofencing \
+    libgnss \
+    libgnsspps \
+    libgps.utils \
     libhdr_tm \
     libhexagon_nn_stub \
     libhta_hexagon_runtime \
@@ -730,7 +740,9 @@ PRODUCT_PACKAGES += \
     liblbs_core \
     liblearningmodule \
     libloc_api_v02 \
+    libloc_core \
     libloc_socket \
+    liblocation_api \
     liblocationservice \
     liblocationservice_glue \
     liblowi_client \
@@ -774,6 +786,7 @@ PRODUCT_PACKAGES += \
     libqcrilFramework \
     libqcrildatactl \
     libqdi \
+    libqdma_file_agent \
     libqdp \
     libqisl \
     libqrtr \
@@ -807,6 +820,7 @@ PRODUCT_PACKAGES += \
     libsensorcal \
     libsensorslog \
     libskewknob \
+    libslimclient \
     libsnpe_dsp_domains_v2 \
     libsns_device_mode_stub \
     libsns_fastRPC_util \
@@ -982,6 +996,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.ims.factory-V1.1-java \
     vendor.qti.ims.factory-V2.0-java \
     android.hardware.biometrics.fingerprint@2.1-service.mojito \
+    android.hardware.gnss@2.1-service-qti \
     android.hardware.keymaster@4.1-service-default-qti \
     android.hardware.neuralnetworks@1.3-service-qti-hta \
     android.hardware.neuralnetworks@1.3-service-qti \
@@ -1001,6 +1016,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service-qti \
     android.hardware.drm@1.3-service.widevine \
     android.hardware.gatekeeper@1.0-service-qti \
+    android.hardware.gnss@2.1-service-qti \
     android.hardware.keymaster@4.1-service-qti \
     android.hardware.neuralnetworks@1.3-service-qti \
     qcrild \
@@ -1034,9 +1050,12 @@ PRODUCT_PACKAGES += \
     qti \
     rmt_storage \
     sensors.qti \
+    slim_daemon \
     tftp_server \
     thermal-engine \
     time_daemon \
     vppservice \
     xtra-daemon \
+    xtwifi-client \
+    xtwifi-inet-agent \
     dpmd
