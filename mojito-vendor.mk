@@ -896,6 +896,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.data.qmi@1.0 \
     vendor.qti.hardware.dsp@1.0 \
     vendor.qti.hardware.fingerprint@1.0 \
+    vendor.qti.hardware.fm@1.0_vendor \
     vendor.qti.hardware.iop@1.0 \
     vendor.qti.hardware.iop@2.0 \
     vendor.qti.hardware.mwqemadapter@1.0 \
@@ -965,6 +966,7 @@ PRODUCT_PACKAGES += \
     libimsmedia_jni \
     libmmparser_lite \
     vendor.qti.diaghal@1.0 \
+    vendor.qti.hardware.fm@1.0_system_ext \
     vendor.qti.ims.factory@1.0_system_ext \
     vendor.qti.ims.factory@1.1_system_ext \
     vendor.qti.ims.factory@2.0_system_ext \
